@@ -1,0 +1,402 @@
+[
+  {
+    "title": "Aceite de Ricino Uso Externo \"PF\" 30ml",
+    "description": "Aceite de ricino para uso externo, ideal para el cuidado de la piel y el cabello.",
+    "code_bar": "29",
+    "product_number": 29,
+    "price": 2900,
+    "status": true,
+    "stock": 15,
+    "category": "Cuidado Personal",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 1
+  },
+  {
+    "title": "Aji de Cayena 50g",
+    "description": "Ají de cayena molido, ideal para sazonar comidas con un toque picante.",
+    "code_bar": "36",
+    "product_number": 36,
+    "price": 894,
+    "status": true,
+    "stock": 20,
+    "category": "Especias",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 2
+  },
+  {
+    "title": "Ajo 1000 Garden House 30 Comp",
+    "description": "Suplemento dietario a base de ajo, beneficioso para la salud cardiovascular.",
+    "code_bar": "38",
+    "product_number": 38,
+    "price": 9082,
+    "status": true,
+    "stock": 30,
+    "category": "Suplementos",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 3
+  },
+  {
+    "title": "Algas para Sushi 5u",
+    "description": "Láminas de alga nori para la preparación de sushi y otros platos orientales.",
+    "code_bar": "42",
+    "product_number": 42,
+    "price": 3120.25,
+    "status": true,
+    "stock": 2,
+    "category": "Gastronomía",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 4
+  },
+  {
+    "title": "Almidón de Maiz Aldema S/TACC 500g",
+    "description": "Almidón de maíz sin TACC, ideal para repostería y cocina sin gluten.",
+    "code_bar": "50",
+    "product_number": 50,
+    "price": 1174,
+    "status": true,
+    "stock": 10,
+    "category": "Harinas y Féculas",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 5
+  },
+  {
+    "title": "Amapola Azul 25g",
+    "description": "Semillas de amapola azul, perfectas para panadería y repostería.",
+    "code_bar": "55",
+    "product_number": 55,
+    "price": 729,
+    "status": true,
+    "stock": 150,
+    "category": "Semillas",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 6
+  },
+  {
+    "title": "Amaranto 100g",
+    "description": "Granos de amaranto, ricos en proteínas y aminoácidos esenciales.",
+    "code_bar": "56",
+    "product_number": 56,
+    "price": 870,
+    "status": true,
+    "stock": 130,
+    "category": "Cereales y Granos",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 7
+  },
+  {
+    "title": "Anis en Grano 25g",
+    "description": "Semillas de anís en grano, utilizadas en infusiones y panadería.",
+    "code_bar": "60",
+    "product_number": 60,
+    "price": 734,
+    "status": true,
+    "stock": 180,
+    "category": "Especias",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 8
+  },
+  {
+    "title": "Aritos de Miel 200g",
+    "description": "Aritos crocantes sabor miel, perfectos para el desayuno o merienda.",
+    "code_bar": "64",
+    "product_number": 64,
+    "price": 1802,
+    "status": true,
+    "stock": 160,
+    "category": "Cereales",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 9
+  },
+  {
+    "title": "Aritos Frutales 200g",
+    "description": "Aritos sabor a frutas, enriquecidos con vitaminas y minerales.",
+    "code_bar": "65",
+    "product_number": 65,
+    "price": 1989.5,
+    "status": true,
+    "stock": 17,
+    "category": "Cereales",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 10
+  },
+  {
+    "title": "Arroz integral fino 500g",
+    "description": "Arroz integral fino, ideal para una alimentación saludable y equilibrada.",
+    "code_bar": "67",
+    "product_number": 67,
+    "price": 1125.6,
+    "status": true,
+    "stock": 550,
+    "category": "Cereales y Granos",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 11
+  },
+  {
+    "title": "Avena Arg. Instantanea Premium 500g",
+    "description": "Avena instantánea de alta calidad, ideal para desayunos saludables.",
+    "code_bar": "74",
+    "product_number": 74,
+    "price": 1773.2,
+    "status": true,
+    "stock": 60,
+    "category": "Cereales",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 12
+  },
+  {
+    "title": "Avena Tradicional Premium 500g",
+    "description": "Avena tradicional sin procesar, ideal para cocinar y hornear.",
+    "code_bar": "78",
+    "product_number": 78,
+    "price": 1707.2,
+    "status": true,
+    "stock": 6,
+    "category": "Cereales",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 13
+  },
+  {
+    "title": "Bicarbonato de Sodio 200g",
+    "description": "Bicarbonato de sodio de grado alimenticio, útil en cocina y limpieza.",
+    "code_bar": "86",
+    "product_number": 86,
+    "price": 1600,
+    "status": true,
+    "stock": 7,
+    "category": "Hogar",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 14
+  },
+  {
+    "title": "Calcio 500 Garden House 40comp",
+    "description": "Suplemento dietario con calcio, ayuda a fortalecer huesos y dientes.",
+    "code_bar": "94",
+    "product_number": 94,
+    "price": 8870,
+    "status": true,
+    "stock": 80,
+    "category": "Suplementos",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 15
+  },
+  {
+    "title": "Canela en Rama 15g",
+    "description": "Ramas de canela natural, ideales para infusiones y repostería.",
+    "code_bar": "95",
+    "product_number": 95,
+    "price": 1170,
+    "status": true,
+    "stock": 15,
+    "category": "Especias",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 16
+  },
+  {
+    "title": "Canela Molida 50g",
+    "description": "Canela molida fina, perfecta para sazonar postres y bebidas.",
+    "code_bar": "97",
+    "product_number": 97,
+    "price": 1323,
+    "status": true,
+    "stock": 10,
+    "category": "Especias",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 17
+  },
+  {
+    "title": "Caramelo Propoleo Lindon Apiter MENTA",
+    "description": "Caramelos de propóleo con menta, ideales para aliviar la garganta.",
+    "code_bar": "99",
+    "product_number": 99,
+    "price": 200.26,
+    "status": true,
+    "stock": 20,
+    "category": "Dulces y Golosinas",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 18
+  },
+  {
+    "title": "Caramelo Propoleo Lindon Apiter MIEL",
+    "description": "Caramelos de propóleo con miel, aportan suavidad y alivio para la garganta.",
+    "code_bar": "100",
+    "product_number": 100,
+    "price": 200.26,
+    "status": true,
+    "stock": 30,
+    "category": "Dulces y Golosinas",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 19
+  },
+  {
+    "title": "Cardo Mariano Tintura Fatima",
+    "description": "Tintura madre de cardo mariano, favorece la salud hepática.",
+    "code_bar": "101",
+    "product_number": 101,
+    "price": 2160,
+    "status": true,
+    "stock": 40,
+    "category": "Suplementos",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 20
+  },
+  {
+    "title": "Cebada Perlada",
+    "description": "Granos de cebada perlada, ideales para guisos y ensaladas.",
+    "code_bar": "106",
+    "product_number": 106,
+    "price": 1158,
+    "status": true,
+    "stock": 90,
+    "category": "Cereales y Granos",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 21
+  },
+  {
+    "title": "Cebolla en escama 50g",
+    "description": "Cebolla deshidratada en escamas, para sazonar todo tipo de platos.",
+    "code_bar": "108",
+    "product_number": 108,
+    "price": 806,
+    "status": true,
+    "stock": 80,
+    "category": "Especias",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 22
+  },
+  {
+    "title": "Centella Asiática Garden House 60comp",
+    "description": "Suplemento de centella asiática, ayuda a mejorar la circulación sanguínea.",
+    "code_bar": "109",
+    "product_number": 109,
+    "price": 8530,
+    "status": true,
+    "stock": 110,
+    "category": "Suplementos",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 23
+  },
+  {
+    "title": "Chia 100g",
+    "description": "Semillas de chía, fuente de omega-3 y fibra.",
+    "code_bar": "113",
+    "product_number": 113,
+    "price": 692,
+    "status": true,
+    "stock": 1110,
+    "category": "Semillas",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 24
+  },
+  {
+    "title": "Chia Caps Garden House 60Comp",
+    "description": "Cápsulas de chía, ricas en ácidos grasos esenciales y antioxidantes.",
+    "code_bar": "115",
+    "product_number": 115,
+    "price": 16200,
+    "status": true,
+    "stock": 90,
+    "category": "Suplementos",
+    "thumbnails": [
+      "imagen1",
+      "imagen2",
+      "imagen3"
+    ],
+    "id": 25
+  }
+]
