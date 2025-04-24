@@ -1,53 +1,5 @@
 [
   {
-    "title": "Aceite de Ricino Uso Externo \"PF\" 30ml",
-    "description": "Aceite de ricino para uso externo, ideal para el cuidado de la piel y el cabello.",
-    "code_bar": "29",
-    "product_number": 29,
-    "price": 2900,
-    "status": true,
-    "stock": 15,
-    "category": "Cuidado Personal",
-    "thumbnails": [
-      "imagen1",
-      "imagen2",
-      "imagen3"
-    ],
-    "id": 1
-  },
-  {
-    "title": "Aji de Cayena 50g",
-    "description": "Ají de cayena molido, ideal para sazonar comidas con un toque picante.",
-    "code_bar": "36",
-    "product_number": 36,
-    "price": 894,
-    "status": true,
-    "stock": 20,
-    "category": "Especias",
-    "thumbnails": [
-      "imagen1",
-      "imagen2",
-      "imagen3"
-    ],
-    "id": 2
-  },
-  {
-    "title": "Ajo 1000 Garden House 30 Comp",
-    "description": "Suplemento dietario a base de ajo, beneficioso para la salud cardiovascular.",
-    "code_bar": "38",
-    "product_number": 38,
-    "price": 9082,
-    "status": true,
-    "stock": 30,
-    "category": "Suplementos",
-    "thumbnails": [
-      "imagen1",
-      "imagen2",
-      "imagen3"
-    ],
-    "id": 3
-  },
-  {
     "title": "Algas para Sushi 5u",
     "description": "Láminas de alga nori para la preparación de sushi y otros platos orientales.",
     "code_bar": "42",
@@ -68,16 +20,17 @@
     "description": "Almidón de maíz sin TACC, ideal para repostería y cocina sin gluten.",
     "code_bar": "50",
     "product_number": 50,
-    "price": 1174,
+    "price": "1174",
     "status": true,
-    "stock": 10,
+    "stock": "10",
     "category": "Harinas y Féculas",
     "thumbnails": [
       "imagen1",
       "imagen2",
       "imagen3"
     ],
-    "id": 5
+    "id": 5,
+    "code": ""
   },
   {
     "title": "Amapola Azul 25g",
