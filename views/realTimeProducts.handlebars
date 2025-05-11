@@ -2,39 +2,37 @@
 
 <div class="row">
   {{#each products}}
-    <div class="col-md-4">
-      <div class="card mb-4 shadow-sm position-relative">
-        
-        <!-- Botón de eliminación -->
-        <button 
-          class="btn btn-danger btn-sm position-absolute top-0 start-0 m-2"
-          onclick="eliminarProducto('{{this.id}}')">
-          &times;
-        </button>
+  <div class="col-md-4">
+    <div class="card mb-4 shadow-sm position-relative">
 
-        <!-- Botón de edición (lápiz) -->
-        <button 
-          class="btn btn-warning btn-sm position-absolute top-0 end-0 m-2"
-     onclick="editarProducto('{{this._id}}', '{{this.title}}', '{{this.description}}', '{{this.price}}', '{{this.product_number}}', '{{this.stock}}', '{{this.category}}');">       
-          ✏️
-        </button>     
+      <!-- Botón de eliminación -->
+      <button class="btn btn-danger btn-sm position-absolute top-0 start-0 m-2"
+        onclick='eliminarProducto("{{this.id}}")'>
+        &times;
+      </button>
 
-        <div class="card-body pt-5"> <!-- Agregar padding-top para separar el contenido -->
-          <h5 class="card-title">{{this.title}}</h5>
-          <p class="card-text">{{this.description}}</p>
-          <p class="card-text"><strong>Precio:</strong> ${{this.price}}</p>          
-          <p class="card-text"><strong>Stock:</strong> {{this.stock}}</p>
-          <p class="card-text"><strong>Categoría:</strong> {{this.category}}</p>
-        </div>
+      <!-- Botón de edición (lápiz) -->
+      <!-- Botón de edición (lápiz) -->
+      <button class="btn btn-warning btn-sm position-absolute top-0 end-0 m-2"
+        onclick='editarProducto("{{this._id}}", "{{this.title}}", "{{this.description}}", "{{this.price}}", "{{this.product_number}}", "{{this.stock}}", "{{this.category}}")'>
+        ✏️
+      </button>
 
-         <!-- Botón de edición (lápiz) -->
-        <button 
-         class="btn btn-success btn-sm position-absolute fixed-bottom start-50 translate-right-x mb-5"
-     onclick="agregarAlCarrito('{{this._id}}');">       
-          Agregar al Carrito
-        </button>
+      <div class="card-body pt-5">
+        <!-- Agregar padding-top para separar el contenido -->
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.description}}</p>
+        <p class="card-text"><strong>Precio:</strong> ${{this.price}}</p>
+        <p class="card-text"><strong>Stock:</strong> {{this.stock}}</p>
+        <p class="card-text"><strong>Categoría:</strong> {{this.category}}</p>
       </div>
+
+      <!-- Botón de venta -->
+      <button class="btn btn-success btn-sm position-absolute bottom-0 end-0 mb-2 me-2"
+        onclick="agregarAlCarrito('{{this._id}}')">
+        Agregar al Carrito
+      </button>
     </div>
+  </div>
   {{/each}}
 </div>
-

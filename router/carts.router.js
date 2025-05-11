@@ -19,6 +19,20 @@ cartsRouter.get("/", async (req, res) => {
     }
 });
 
+// Obtener un carrito por su _id
+cartsRouter.get("/:id", async (req, res) => {
+    try {
+        const carrito = await cartModel.findById(req.params.id);
+        if (!carrito) {
+            return res.status(404).json({ result: "error", message: "Carrito no encontrado" });
+        }
+        res.json({ result: "ok", payload: carrito });
+    } catch (error) {
+        console.error("Error al buscar el carrito:", error);
+        res.status(500).json({ result: "error", message: error.message });
+    }
+});
+
 // Agregar un nuevo carrito
 cartsRouter.post("/", async (req, res) => {
     const [ids] = req.body;
@@ -60,6 +74,55 @@ cartsRouter.put("/:id", async (req, res) => {
         res.status(500).json({ result: "error", message: error.message });
     }
 });
+
+
+// Actualizar un carrito por su id
+cartsRouter.put("/addToCart/:cartId/:productObjectId", async (req, res) => {
+    try {
+        const { cartId, productObjectId } = req.params;
+
+        // 1. Buscar el carrito por su _id
+        const cart = await cartModel.findById(cartId);
+        if (!cart) {
+            return res.status(404).json({ result: "error", message: "Carrito no encontrado" });
+        }
+
+        // 2. Buscar el producto por su _id (el Mongo ObjectId del producto)
+        const product = await productModel.findById(productObjectId);
+        if (!product) {
+            return res.status(404).json({ result: "error", message: "Producto no encontrado" });
+        }
+
+        // 3. Verificar si el producto ya está en el carrito
+        const existingProduct = cart.products.find(p => p.id === product.id);
+
+        if (existingProduct) {
+            existingProduct.quantity += 1; // Incrementar cantidad
+        } else {
+            // Agregar nuevo producto al carrito
+            cart.products.push({
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                quantity: 1
+            });
+        }
+
+        // 4. Recalcular el total del carrito
+        cart.total = cart.products.reduce((acc, p) => acc + (p.price * p.quantity), 0);
+
+        // 5. Guardar y devolver el carrito actualizado
+        await cart.save();
+
+        res.json({ result: "ok", payload: cart });
+
+    } catch (error) {
+        console.error("Error al agregar producto al carrito:", error);
+        res.status(500).json({ result: "error", message: error.message });
+    }
+});
+
+
 
 // Eliminar un carrito por su id
 cartsRouter.delete("/:id", async (req, res) => {
