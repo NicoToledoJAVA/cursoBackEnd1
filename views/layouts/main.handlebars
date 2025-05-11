@@ -1,5 +1,4 @@
 <!-- main.handlebars -->
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -22,7 +21,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="cartModalLabel">Changuito de Compras</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          <!-- Botón de cierre con onclick para llamar la función closeCartModal -->
+          <button type="button" class="btn-close" onclick="closeCartModal()" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
           <div id="cartItemsContainer">
@@ -33,26 +33,32 @@
           <p id="totalCarrito"><strong>Total: $0</strong></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <!-- Botón de cerrar que también cierra el modal -->
+          <button type="button" class="btn btn-secondary" onclick="closeCartModal()">Cerrar</button>
         </div>
       </div>
     </div>
   </div>
 
-
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
   <script>
-
+    // Inicialización del modal de carrito
     const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
-    openCartModal();
-    actualizarVistaCarrito('681e2c5c65ff140e72d5210e');
+
+    // Función para abrir el modal del carrito
+    function openCartModal() {
+      cartModal.show();
+    }
+
+    // Función para cerrar el modal manualmente
+    function closeCartModal() {
+      cartModal.hide(); // Cierra el modal
+    }
+
+    // Función para agregar un producto al carrito
     function agregarAlCarrito(id) {
-
-
       fetch(`/api/carts/addToCart/681e2c5c65ff140e72d5210e/${id}`, {
         method: 'PUT',
         headers: {
@@ -65,7 +71,7 @@
             console.log("Producto agregado al carrito correctamente:", data.payload);
             alert("Producto agregado al carrito");
             actualizarVistaCarrito('681e2c5c65ff140e72d5210e');
-            cartModal.show();
+            cartModal.show();  // Abre el modal después de agregar el producto
           } else {
             console.error("Error al agregar al carrito:", data.message);
             alert("No se pudo agregar al carrito: " + data.message);
@@ -77,62 +83,49 @@
         });
     }
 
-
+    // Función para actualizar la vista del carrito
     function actualizarVistaCarrito(idCarrito) {
-  fetch(`/api/carts/${idCarrito}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('No se pudo obtener el carrito');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Carrito recibido:', data); // 🧪 Esto te mostrará la estructura
-      const productos = data.payload.products;
-      const contenedor = document.getElementById('lista-carrito');
-      contenedor.innerHTML = ''; // limpiamos contenido previo
+      fetch(`/api/carts/${idCarrito}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('No se pudo obtener el carrito');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Carrito recibido:', data); // 🧪 Esto te mostrará la estructura
+          const productos = data.payload.products;
+          const contenedor = document.getElementById('lista-carrito');
+          contenedor.innerHTML = ''; // Limpiamos el contenido previo
 
-      const maxProductosVisibles = 5;
-      let totalCarrito = 0; // Inicializamos el total en 0
+          const maxProductosVisibles = 5;
+          let totalCarrito = 0; // Inicializamos el total en 0
 
-      productos.slice(0, maxProductosVisibles).forEach(producto => {
-        const item = document.createElement('li');
-        item.textContent = `${producto.title} - $${producto.price} x ${producto.quantity}`;
-        contenedor.appendChild(item);
+          productos.slice(0, maxProductosVisibles).forEach(producto => {
+            const item = document.createElement('li');
+            item.textContent = `${producto.title} - $${producto.price} x ${producto.quantity}`;
+            contenedor.appendChild(item);
 
-        // Calculamos el total sumando el precio por la cantidad
-        totalCarrito += producto.price * producto.quantity;
-      });
+            // Calculamos el total sumando el precio por la cantidad
+            totalCarrito += producto.price * producto.quantity;
+          });
 
-      if (productos.length > maxProductosVisibles) {
-        const restantes = productos.length - maxProductosVisibles;
-        const item = document.createElement('li');
-        item.textContent = `... y ${restantes} más`;
-        contenedor.appendChild(item);
-      }
+          if (productos.length > maxProductosVisibles) {
+            const restantes = productos.length - maxProductosVisibles;
+            const item = document.createElement('li');
+            item.textContent = `... y ${restantes} más`;
+            contenedor.appendChild(item);
+          }
 
-      // Actualizamos el total en la vista
-      document.getElementById('totalCarrito').innerHTML = `<strong>Total: $${totalCarrito.toFixed(2)}</strong>`;
-    })
-    .catch(error => {
-      console.error('Error al obtener el carrito:', error);
-    });
-}
-
-
-
-
-
-    // Función para abrir el modal del changuito
-    function openCartModal() {
-      const modal = new bootstrap.Modal(document.getElementById('cartModal'));
-      modal.show();
+          // Actualizamos el total en la vista
+          document.getElementById('totalCarrito').innerHTML = `<strong>Total: $${totalCarrito.toFixed(2)}</strong>`;
+        })
+        .catch(error => {
+          console.error('Error al obtener el carrito:', error);
+        });
     }
 
-
-
-
-    // Función de eliminar producto (ya incluida en el código previo)
+    // Función para eliminar un producto
     function eliminarProducto(id) {
       Swal.fire({
         title: '¿Estás seguro?',
@@ -176,19 +169,18 @@
       });
     }
 
-
     // Función para mostrar modal de edición
     function editarProducto(_id, title, description, price, product_number, stock, category) {
       Swal.fire({
         title: 'Editar Producto',
         html: `
-      <div><strong>Título:</strong> <input type="text" id="editTitle" class="swal2-input" value="${title}" /></div>
-      <div><strong>Descripción:</strong> <textarea id="editDescription" class="swal2-textarea">${description}</textarea></div>
-      <div><strong>Precio:</strong> <input type="number" id="editPrice" class="swal2-input" value="${price}" /></div>
-      <div><strong>Código:</strong> <input type="text" id="editCode" class="swal2-input" value="${product_number}" /></div>
-      <div><strong>Stock:</strong> <input type="number" id="editStock" class="swal2-input" value="${stock}" /></div>
-      <div><strong>Categoría:</strong> <input type="text" id="editCategory" class="swal2-input" value="${category}" /></div>
-    `,
+          <div><strong>Título:</strong> <input type="text" id="editTitle" class="swal2-input" value="${title}" /></div>
+          <div><strong>Descripción:</strong> <textarea id="editDescription" class="swal2-textarea">${description}</textarea></div>
+          <div><strong>Precio:</strong> <input type="number" id="editPrice" class="swal2-input" value="${price}" /></div>
+          <div><strong>Código:</strong> <input type="text" id="editCode" class="swal2-input" value="${product_number}" /></div>
+          <div><strong>Stock:</strong> <input type="number" id="editStock" class="swal2-input" value="${stock}" /></div>
+          <div><strong>Categoría:</strong> <input type="text" id="editCategory" class="swal2-input" value="${category}" /></div>
+        `,
         icon: 'info',
         showCancelButton: true,
         confirmButtonText: 'Aceptar',
@@ -237,16 +229,8 @@
         }
       });
     }
-
-
-
-
-
-
-
   </script>
 
 </body>
-
 
 </html>
