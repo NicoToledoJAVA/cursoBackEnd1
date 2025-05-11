@@ -103,12 +103,18 @@
 
           productos.slice(0, maxProductosVisibles).forEach(producto => {
             const item = document.createElement('li');
-            item.textContent = `${producto.title} - $${producto.price} x ${producto.quantity}`;
+            item.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'mb-2');
+
+            item.innerHTML = `
+    <span>${producto.title} - $${producto.price} x ${producto.quantity}</span>
+    <button class="btn btn-sm btn-danger" onclick="eliminarDelCarrito('${producto._id}')">X</button>
+  `;
+
             contenedor.appendChild(item);
 
-            // Calculamos el total sumando el precio por la cantidad
             totalCarrito += producto.price * producto.quantity;
           });
+
 
           if (productos.length > maxProductosVisibles) {
             const restantes = productos.length - maxProductosVisibles;
@@ -228,6 +234,41 @@
             });
         }
       });
+
+
+    }
+
+    function eliminarDelCarrito(productObjectId) {
+      const cartId = '681e2c5c65ff140e72d5210e'; // o dinamizá si tenés múltiples carritos
+      console.log("Recibí un id: " + productObjectId)
+      fetch(`/api/carts/removeFromCart/${cartId}/${productObjectId}`, {
+        method: 'PUT'
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.result === "ok") {
+            actualizarVistaCarrito(cartId);
+            Swal.fire(
+              'Eliminado!',
+              'Producto eliminado del changuito.',
+              'success'
+            );
+          } else {
+            Swal.fire(
+              'Error!',
+              data.message || 'No se pudo eliminar el producto del carrito.',
+              'error'
+            );
+          }
+        })
+        .catch(error => {
+          console.error('Error al eliminar del carrito:', error);
+          Swal.fire(
+            'Error!',
+            'Ocurrió un error al eliminar el producto del changuito.',
+            'error'
+          );
+        });
     }
   </script>
 

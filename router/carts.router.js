@@ -123,6 +123,40 @@ cartsRouter.put("/addToCart/:cartId/:productObjectId", async (req, res) => {
 });
 
 
+// Eliminar un producto del carrito por su id
+cartsRouter.put("/removeFromCart/:cartId/:productObjectId", async (req, res) => {
+    try {
+        const { cartId, productObjectId } = req.params;
+
+        const cart = await cartModel.findById(cartId);
+        if (!cart) {
+            return res.status(404).json({ result: "error", message: "Carrito no encontrado" });
+        }
+
+        // Comparación segura usando String()
+        const index = cart.products.findIndex(p => String(p._id) === productObjectId);
+        if (index === -1) {
+            return res.status(404).json({ result: "error", message: "Producto no encontrado en el carrito" });
+        }
+
+        if (cart.products[index].quantity > 1) {
+            cart.products[index].quantity -= 1;
+        } else {
+            cart.products.splice(index, 1);
+        }
+
+        cart.total = cart.products.reduce((acc, p) => acc + p.price * p.quantity, 0);
+        await cart.save();
+
+        res.json({ result: "ok", payload: cart });
+
+    } catch (error) {
+        console.error("Error al eliminar producto del carrito:", error);
+        res.status(500).json({ result: "error", message: error.message });
+    }
+});
+
+
 
 // Eliminar un carrito por su id
 cartsRouter.delete("/:id", async (req, res) => {
@@ -136,7 +170,7 @@ cartsRouter.delete("/:id", async (req, res) => {
 
 // Función para recuperar el id más grande y obtener el siguiente número disponible
 async function getNextCartNumber() {
-    const largestCart = await cartModel.findOne({}, {}, { sort: { 'id' : -1 } });
+    const largestCart = await cartModel.findOne({}, {}, { sort: { 'id': -1 } });
     return largestCart ? largestCart.id + 1 : 1;
 }
 
@@ -144,7 +178,7 @@ async function getChangoObjects(IDs) {
     try {
         // Obtener los productos originales
         const originalProducts = await getSingleProductsByIds(IDs);
-        
+
         // Crear una nueva lista con los atributos id, title y price
         const selectedProductDetails = originalProducts.payload.map(product => {
             return { id: product.id, title: product.title, price: product.price, quantity: 1 };
@@ -160,7 +194,7 @@ async function getChangoObjects(IDs) {
 async function getSingleProductsByIds(IDs) {
     try {
         const productIds = IDs.map(id => parseInt(id));
-        
+
         const products = await productModel.find({ id: { $in: productIds } });
         if (products.length > 0) {
             return { result: "ok", payload: products };
