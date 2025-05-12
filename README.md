@@ -92,10 +92,11 @@ El archivo `main.handlebars` incluye la estructura básica de la página, con lo
 </div>
 ```
 
+# Rutas
 
-
-
-## Rutas
+---
+## (La collection de Postman se halla en el directorio raíz como:  `Backend.postman_collection.json`)
+---
 
 ### Rutas de Productos (`/api/products`)
 
